@@ -1,0 +1,55 @@
+<app-navbar/>
+
+<section class="characterSection">
+  <mat-card *ngIf="character" class="characterCard">
+    <mat-card-content>
+      <div class="cardGrid">
+        <div class="imageCardGrid">
+          <img 
+            [src]="character.image" 
+            [alt]="character.name" 
+            class="object-cover"
+          >
+        </div>
+        <div>
+          <h2 class="characterName">{{ character.name }}</h2>
+          <div class="detailsGrid">
+            <div>
+              <p class="mb-2"><strong>Status:</strong> {{ character.status }}</p>
+              <p class="mb-2"><strong>Species:</strong> {{ character.species }}</p>
+              <p class="mb-2"><strong>Gender:</strong> {{ character.gender }}</p>
+            </div>
+            <div>
+              <p class="mb-2"><strong>Origin:</strong> {{ character.origin.name }}</p>
+              <p class="mb-2"><strong>Location:</strong> {{ character.location.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="recruitButton"
+        *ngIf="!isRecruited"
+        mat-raised-button 
+        color="primary" 
+        (click)="recruitCharacter()">
+        Reclutar
+        <img  src="./assets/images/portal.png"/>
+      </button>
+      <button 
+        *ngIf="isRecruited"
+        mat-raised-button 
+        color="warn" 
+        (click)="removeRecruitedCharacter()">
+        Eliminar
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+      <button 
+        mat-raised-button 
+        color="secondary" 
+        routerLink="/agentes">
+        Volver
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>

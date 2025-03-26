@@ -1,0 +1,32 @@
+  <app-navbar/>
+    <section class="p-6">
+      <h2 class="text-2xl mb-4">Personajes Reclutados</h2>
+      
+      <div *ngIf="recruitedCharactersService.recruitedCharacters().length === 0" class="text-center">
+        No hay personajes reclutados aún
+      </div>
+
+      <div class="characters-grid">
+        <mat-card *ngFor="let character of recruitedCharactersService.recruitedCharacters()" 
+                  class="hover:scale-105 transition-transform">
+          <mat-card-header>
+            <mat-card-title>{{ character.name }}</mat-card-title>
+          </mat-card-header>
+          
+          <img mat-card-image class="image-card" [src]="character.image" [alt]="character.name">
+          
+          <mat-card-content>
+            <p>Status: {{ character.status }}</p>
+            <p>Species: {{ character.species }}</p>
+          </mat-card-content>
+          
+          <mat-card-actions>
+            <button mat-raised-button color="warn" 
+                    (click)="removeCharacter(character.id)">
+              Eliminar
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </section>

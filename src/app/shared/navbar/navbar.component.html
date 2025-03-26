@@ -1,0 +1,14 @@
+<mat-toolbar>
+    <div class="navbarLogo" routerLink="/">
+        <img src="./assets/images/Rick_and_Morty_logo.webp" alt="rick-and-morty-logo">
+    </div>
+    <div class="navbarRight">
+    <div>
+        <a [routerLink]="['/agentes-reclutados']">Agentes reclutados </a>
+        <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon>
+    </div>
+    <div class="navbarTheme">
+        <img src="./assets/images/luna-rick-and-morty.png" alt="luna-rick-and-morty"/>
+    </div>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,99 @@
+<app-navbar/>
+
+<section class="p-6">
+  <div class="agentTitle">
+    <h1>Escoge tu agente</h1>
+  </div>
+  <div class="agentFilter">
+    
+    <mat-form-field>
+      <mat-label>Buscar por Nombre</mat-label>
+      <input matInput 
+             [ngModel]="searchName()" 
+             (ngModelChange)="updateFilter('name', $event)" 
+             placeholder="Nombre del personaje">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <mat-select 
+        [ngModel]="selectedStatus()" 
+        (ngModelChange)="updateFilter('status', $event)">
+        <mat-option value="">Todos los Estados</mat-option>
+        <mat-option *ngFor="let status of uniqueStatuses()" [value]="status">
+          {{status}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Especie</mat-label>
+      <mat-select 
+        [ngModel]="selectedSpecies()" 
+        (ngModelChange)="updateFilter('species', $event)">
+        <mat-option value="">Todas las Especies</mat-option>
+        <mat-option *ngFor="let species of uniqueSpecies()" [value]="species">
+          {{species}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+  <div *ngIf="apiService.loading()" class="flex justify-center items-center">
+    <mat-icon aria-hidden="false" class="animate-spin">refresh</mat-icon>
+    <span class="ml-2">Cargando personajes...</span>
+  </div>
+
+  <div *ngIf="apiService.error()" class="text-red-500 text-center">
+    {{ apiService.error() }}
+  </div>
+
+  <div class="characters-grid" *ngIf="!apiService.error()">
+    <mat-card *ngFor="let character of paginatedCharacters()" class="hover:scale-105 transition-transform">
+      <img [routerLink]="['/agentes-detalles', character.id]" mat-card-image class="image-card" [src]="character.image" [alt]="character.name">
+      
+      <mat-card-content>
+        <h1 [routerLink]="['/agentes-detalles', character.id]">{{character.name}}</h1>
+        <p [routerLink]="['/agentes-detalles', character.id]">Status: {{ character.status }}</p>
+        <p [routerLink]="['/agentes-detalles', character.id]">Species: {{character.species}} </p>
+        <p [routerLink]="['/agentes-detalles', character.id]">Location: {{character.location.name}} </p>
+      </mat-card-content>
+      
+      <mat-card-actions>
+        <button class="recruitButton"
+          *ngIf="!isCharacterRecruited(character.id)"
+          mat-raised-button 
+          color="primary" 
+          (click)="recruitCharacter(character)">
+          Reclutar
+          <img  src="./assets/images/portal.png"/>
+        </button>
+        <button 
+          *ngIf="isCharacterRecruited(character.id)"
+          mat-raised-button 
+          color="warn" 
+          (click)="removeRecruitedCharacter(character.id)">
+          Eliminar
+          <mat-icon aria-hidden="false">close</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <mat-paginator 
+    *ngIf="filteredCharacters().length > 0"
+    [length]="totalCharacters()"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex()"
+    [pageSizeOptions]="[12]"
+    (page)="onPageChange($event)"
+    showFirstLastButtons>
+  </mat-paginator>
+
+
+  <div *ngIf="filteredCharacters().length === 0" class="text-center text-gray-500 mt-8">
+    No se encontraron personajes que coincidan con los filtros.
+  </div>
+
+</section>

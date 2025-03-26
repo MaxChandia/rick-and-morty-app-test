@@ -1,0 +1,32 @@
+mat-toolbar {
+    height: 100px;
+    padding: 50px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 242, 186);
+}
+
+
+.navbarRight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.navbarRight a{
+    text-decoration: none;
+    color:rgb(0, 121, 107);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+}
+
+.navbarLogo img {
+    height: 80px;
+}
+
+.navbarTheme img {
+    height: 70px;
+}
