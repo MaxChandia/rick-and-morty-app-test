@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import { RecruitedCharactersService } from '../../core/services/recruit.service';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -18,8 +16,6 @@ import { NgIf } from '@angular/common';
     MatIconModule,
     MatBadgeModule,
     RouterModule,
-    MatSidenavModule,
-    MatListModule,
     NgIf
   ],
   templateUrl: './navbar.component.html',
@@ -27,16 +23,7 @@ import { NgIf } from '@angular/common';
 })
 export class NavbarComponent {
   recruitedCharactersService = inject(RecruitedCharactersService);
-  isSidebarVisible = false;
   isDarkTheme: boolean = false;
-
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-  }
-  
-  isSidebarOpen() {
-    return this.isSidebarVisible;
-  }
   
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
