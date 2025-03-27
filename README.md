@@ -1,10 +1,12 @@
-Aplicación de Reclutamiento de Personajes de Rick y Morty 
+#Aplicación de Reclutamiento de Personajes de Rick y Morty 
 
 "La nueva Ciudadela Galáctica Interdimensional busca agentes"
 
-Descripción
-Una aplicación web desarrollada con Angular que permite a los usuarios explorar, ver detalles y reclutar personajes del universo de Rick y Morty. La aplicación ofrece una interfaz interactiva para descubrir y gestionar un equipo de personajes.
- Características
+#Descripción
+
+Esta aplicación web fue desarrollada con Angular que permite a los usuarios explorar, ver detalles y reclutar personajes del universo de Rick y Morty. La aplicación ofrece una interfaz interactiva para descubrir y gestionar un equipo de personajes.
+
+#Características
 
 Exploración completa de personajes de Rick y Morty
 Paginación y filtrado avanzado
@@ -12,7 +14,7 @@ Detalles individuales de personajes
 Sistema de reclutamiento de equipo
 Diseño responsivo con Angular Material
 
-Tecnologías Utilizadas
+#Tecnologías Utilizadas
 
 Angular
 RxJS
@@ -24,11 +26,11 @@ Node.js (v16+ recomendado)
 Angular CLI
 npm o yarn
 
-Instalación
+#Instalación
 
 Clonar el repositorio:
 
-bashCopiargit clone https://github.com/tu-usuario/rick-and-morty-app.git
+git clone https://github.com/tu-usuario/rick-and-morty-app.git
 cd rick-and-morty-app
 
 Instalar dependencias:
@@ -41,7 +43,7 @@ ng serve
 
 Abrir el navegador en http://localhost:4200/
 
-Estructura del Proyecto
+#Estructura del Proyecto
 
 Componentes Principales
 
@@ -55,7 +57,7 @@ Servicios
 ApiService: Gestión de llamadas a la API
 RecruitedCharactersService: Control de reclutamiento de personajes
 
-Reglas de Reclutamiento
+#Reglas de Reclutamiento
 
 Máximo 8 personajes por equipo
 
@@ -65,12 +67,12 @@ Personajes fallecidos
 Personajes con estado desconocido
 
 
-Endpoints de API
+#Endpoints de API
 
 Base URL: https://rickandmortyapi.com/api/character
 Soporta carga completa de catálogo de personajes
 
-Rutas de la Aplicación
+#Rutas de la Aplicación
 
 / - Página de Inicio
 /agentes - Listado de Personajes
@@ -78,10 +80,7 @@ Rutas de la Aplicación
 /agentes-reclutados - Equipo Reclutado
 
 
-Licencia
-[Especificar la licencia, por ejemplo: MIT]
-
-Contacto
+#Contacto
 
 https://github.com/MaxChandia
 
