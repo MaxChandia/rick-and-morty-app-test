@@ -17,8 +17,6 @@ import { NgFor, NgIf } from '@angular/common';
     NavbarComponent,
     MatCardModule,
     RouterModule,
-    NgFor,
-    NgIf
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
