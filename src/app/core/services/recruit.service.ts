@@ -29,6 +29,10 @@ export class RecruitedCharactersService {
     );
   }
 
+  removeRecruitedCharacters() {
+    this._recruitedCharacters.update(() => []); 
+  }
+
   getRecruitedCount() {
     return this._recruitedCharacters().length;
   }

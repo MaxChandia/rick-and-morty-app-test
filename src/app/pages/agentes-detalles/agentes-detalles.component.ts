@@ -10,6 +10,7 @@ import { Character } from '../../core/models/character.models';
 import { RouterModule } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateCharacterPipe } from '../../shared/pipes/translated.character';
 
 @Component({
   selector: 'app-agentes-detalles',
@@ -21,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     RouterModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule,
+    TranslateCharacterPipe
   ],
   templateUrl: './agentes-detalles.component.html',
   styleUrls: ['./agentes-detalles.component.css']

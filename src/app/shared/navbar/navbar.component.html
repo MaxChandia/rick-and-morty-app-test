@@ -1,14 +1,45 @@
-<mat-toolbar>
-    <div class="navbarLogo" routerLink="/">
-        <img src="./assets/images/Rick_and_Morty_logo.webp" alt="rick-and-morty-logo">
-    </div>
-    <div class="navbarRight">
+<mat-toolbar class="mobile-navbar">
+
+  
+  <div class="navbarLogo" routerLink="/">
+    <img src="./assets/images/Rick_and_Morty_logo.webp" alt="rick-and-morty-logo">
+  </div>
+    <button mat-icon-button (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="sidebar-container">
+  <mat-drawer mode="over" [opened]="isSidebarOpen()">
+    <mat-nav-list>
+      <mat-list-item [routerLink]="['/agentes-reclutados']" (click)="toggleSidebar()">
+        <mat-icon matListItemIcon>supervisor_account</mat-icon>
+        Agentes reclutados 
+        <mat-badge matBadge="{{recruitedCharactersService.getRecruitedCount()}}"></mat-badge>
+      </mat-list-item>
+      
+      <mat-list-item>
+        <mat-icon matListItemIcon>brightness_4</mat-icon>
+        Cambiar Tema
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+</mat-drawer-container>
+
+<mat-toolbar class="desktop-navbar">
+  <div class="navbarLogo" routerLink="/">
+    <img src="./assets/images/Rick_and_Morty_logo.webp" alt="rick-and-morty-logo">
+  </div>
+  
+  <div class="navbarRight">
     <div>
-        <a [routerLink]="['/agentes-reclutados']">Agentes reclutados </a>
-        <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon>
+      <a [routerLink]="['/agentes-reclutados']">Agentes reclutados</a>
+      <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon>
     </div>
     <div class="navbarTheme">
-        <img src="./assets/images/luna-rick-and-morty.png" alt="luna-rick-and-morty"/>
+      <img *ngIf="!isDarkTheme" src="./assets/images/solrickmorty.png" alt="sol" (click)="toggleTheme()" style="cursor: pointer;" />
+      <img *ngIf="isDarkTheme" src="./assets/images/luna-rick-and-morty.png" alt="luna" (click)="toggleTheme()" style="cursor: pointer;" />
     </div>
-    </div>
+  </div>
 </mat-toolbar>
+

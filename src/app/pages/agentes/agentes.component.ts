@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateCharacterPipe } from '../../shared/pipes/translated.character';
 
 @Component({
   selector: 'app-landing-page',
@@ -30,7 +32,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatFormFieldModule,
     FormsModule,
     MatSelectModule,
-    MatBadgeModule
+    MatBadgeModule,
+    TranslateCharacterPipe
   ],
   templateUrl: './agentes.component.html',
   styleUrl: './agentes.component.css'
@@ -63,7 +66,7 @@ export class AgentesComponent implements OnInit {
     return characters.slice(startIndex, startIndex + this.pageSize);
   });
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
     effect(() => {
       const characters = this.filteredCharacters();
       this.totalCharacters.set(characters.length);
@@ -105,12 +108,39 @@ export class AgentesComponent implements OnInit {
   }
 
   recruitCharacter(character: any) {
+    const recruitedCount = this.recruitedCharactersService.recruitedCharacters().length;
+  
+    if (recruitedCount >= 8) {
+      this.showSnackBar("Equipo completo", "Cerrar");
+      return;
+    }
+  
+    if (character.status === "Dead") {
+      this.showSnackBar("Recluta fallecido. No puede ingresar al equipo.", "Cerrar");
+      return;
+    }
+  
+    if (character.status === "unknown") {
+      this.showSnackBar("No se pudo contactar al recluta.", "Cerrar");
+      return;
+    }
+  
     this.recruitedCharactersService.recruitCharacter({
       id: character.id,
       name: character.name,
       image: character.image,
       status: character.status,
       species: character.species
+    });
+  
+    this.showSnackBar("Agente reclutado", "Cerrar");
+  }
+
+  showSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000, // 3 segundos
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
     });
   }
 

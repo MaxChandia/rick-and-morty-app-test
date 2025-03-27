@@ -35,8 +35,13 @@ mat-card {
 }
 
 mat-card h1 {
-    color:rgb(0, 121, 107);
+    color: rgb(3, 161, 143);
+    cursor: pointer;
 }
+
+mat-card h1:hover {
+     color:rgb(0, 121, 107);
+};
 
 
 .image-card {
@@ -87,14 +92,18 @@ mat-card:hover {
     transform: scale(1.02);
 }
 
-@media (max-width: 1024px) {
-    .characters-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 925px) {
+  .characters-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 2rem; 
+    padding: 0;
+    justify-items: center; 
+}
+
+    mat-paginator {
+        margin-top: 15px;
     }
 }
 
-@media (max-width: 640px) {
-    .characters-grid {
-        grid-template-columns: 1fr;
-    }
-}
+

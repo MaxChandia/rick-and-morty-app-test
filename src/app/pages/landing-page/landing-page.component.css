@@ -7,16 +7,23 @@ section {
 .landingText {
     width: 50%;
     height: 90vh;
-    padding: 0 50px;
+    padding: 0 60px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+.landingText p {
+    margin-left: 15px;
 }
 
 .landingText button {
    color:rgb(0, 121, 107);
+   background-color: rgb(230, 230, 230);
    font-weight: 600;
+   width: 100px;;
+   margin-top: 10px;
 }
 
 .landingImage {
@@ -29,4 +36,49 @@ section {
     height: 100%;    
     object-fit: cover; 
     object-position: center; 
+}
+
+@media (max-width:950px) {
+    section {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .landingText {
+        width: 90%;
+        height: 60vh;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .landingText h1 {
+        font-size: 20px;
+    }
+    
+    .landingText p {
+        font-size: 13px;
+        margin-left: 0px;
+    }
+    
+    .landingText button {
+       color:rgb(0, 121, 107);
+       background-color: rgb(230, 230, 230);
+       font-weight: 600;
+       font-size: 13px;
+       width: 80px;;
+       margin-top: 10px;
+    }
+    
+    .landingImage {
+        width: 100%;
+        height: 90vh;
+    }
 }

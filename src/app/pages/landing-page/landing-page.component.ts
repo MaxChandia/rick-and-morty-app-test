@@ -31,24 +31,5 @@ export class LandingPageComponent implements OnInit {
     this.apiService.getCharacters();
   }
 
-  recruitCharacter(character: any) {
-    this.recruitedCharactersService.recruitCharacter({
-      id: character.id,
-      name: character.name,
-      image: character.image,
-      status: character.status,
-      species: character.species
-    });
-  }
-
-  isCharacterRecruited(characterId: number): boolean {
-    return this.recruitedCharactersService
-      .recruitedCharacters()
-      .some(char => char.id === characterId);
-  }
-
- 
-  removeRecruitedCharacter(characterId: number) {
-    this.recruitedCharactersService.removeRecruitedCharacter(characterId);
-  }
+  
 }

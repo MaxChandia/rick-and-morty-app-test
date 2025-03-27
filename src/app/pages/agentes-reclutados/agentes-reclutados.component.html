@@ -4,15 +4,14 @@
     <img src="./assets/images/nuevaciudadela.jpg" alt="citadelTower"/>
     <div class="recruitSpace">
       <h2>Agentes Reclutados</h2>
-      <p *ngIf="recruitedCharactersService.recruitedCharacters().length
-=== 0" class="text-center">
+      <p *ngIf="recruitedCharactersService.recruitedCharacters().length === 0" class="text-center">
         No hay personajes reclutados aún
       </p>
       <div class="characters-grid">
-        <mat-card *ngFor="let character of
-recruitedCharactersService.recruitedCharacters()">
+        <mat-card *ngFor="let character of recruitedCharactersService.recruitedCharacters()">
           <img mat-card-image class="image-card"
-              [src]="character.image" [alt]="character.name" [routerLink]="['/agentes-detalles', character.id]">
+               [src]="character.image" [alt]="character.name" 
+               [routerLink]="['/agentes-detalles', character.id]">
 
           <mat-card-actions>
             <button class="">
@@ -20,8 +19,15 @@ recruitedCharactersService.recruitedCharacters()">
             </button>
           </mat-card-actions>
         </mat-card>
+      </div> 
+      <div class="buttons-container">
+        <button mat-raised-button  (click)="goBack()">Volver</button>
+        <button mat-raised-button color="warn" (click)="removeCharacters()"  
+                [disabled]="recruitedCharactersService.recruitedCharacters().length === 0">
+          Eliminar reclutas
+        </button>
       </div>
+
     </div>
   </div>
-
 </section>

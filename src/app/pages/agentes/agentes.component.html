@@ -1,6 +1,6 @@
 <app-navbar/>
 
-<section class="p-6">
+<section>
   <div class="agentTitle">
     <h1>Escoge tu agente</h1>
   </div>
@@ -21,7 +21,7 @@
         (ngModelChange)="updateFilter('status', $event)">
         <mat-option value="">Todos los Estados</mat-option>
         <mat-option *ngFor="let status of uniqueStatuses()" [value]="status">
-          {{status}}
+          {{status | translateCharacter:'status'}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -33,7 +33,7 @@
         (ngModelChange)="updateFilter('species', $event)">
         <mat-option value="">Todas las Especies</mat-option>
         <mat-option *ngFor="let species of uniqueSpecies()" [value]="species">
-          {{species}}
+          {{species | translateCharacter: 'species'}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -55,9 +55,9 @@
       
       <mat-card-content>
         <h1 [routerLink]="['/agentes-detalles', character.id]">{{character.name}}</h1>
-        <p [routerLink]="['/agentes-detalles', character.id]">Status: {{ character.status }}</p>
-        <p [routerLink]="['/agentes-detalles', character.id]">Species: {{character.species}} </p>
-        <p [routerLink]="['/agentes-detalles', character.id]">Location: {{character.location.name}} </p>
+        <p>Estado: {{ character.status | translateCharacter:'status' }}</p>
+        <p>Especie: {{ character.species | translateCharacter:'species' }} </p>
+        <p>Localización: {{ character.location.name | translateCharacter: 'location' }} </p>
       </mat-card-content>
       
       <mat-card-actions>

@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RecruitedCharactersService } from '../../core/services/recruit.service';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-agentes-reclutados',
@@ -24,8 +25,18 @@ import { RouterLink } from '@angular/router';
 export class AgentesReclutadosComponent {
   recruitedCharactersService = inject(RecruitedCharactersService);
 
+  constructor(private location: Location) {}
+
+  goBack(): void {
+    this.location.back();
+  }
+
   removeCharacter(characterId: number) {
     this.recruitedCharactersService.removeRecruitedCharacter(characterId);
+  }
+
+  removeCharacters() {
+    this.recruitedCharactersService.removeRecruitedCharacters();
   }
 
 }

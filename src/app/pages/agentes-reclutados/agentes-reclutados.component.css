@@ -1,20 +1,20 @@
-recruitCenter {
-    height: 80vh;
+.recruitCenter {
+    height: 90vh;
     width: auto;
     position: relative;
 }
 
 .recruitCenter img {
     position: relative;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .recruitSpace {
     position: absolute;
-    top: 30%;
-    height: 60vh;
+    top: 15%;
+    height: 65vh;
     width: 50%;
     background-color: rgba(255, 255, 255, 1);
     z-index: 10;
@@ -29,6 +29,14 @@ recruitCenter {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 mat-card {
@@ -46,4 +54,49 @@ mat-card button {
     color: red;
     text-decoration: none;
 
+}
+
+@media (max-width: 925px) {
+    .recruitCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 110vh;
+    }
+
+    .recruitSpace {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        padding: 20px;
+        width: 80%; 
+        max-width: 500px; 
+        background-color: rgba(255, 255, 255, 1);
+        z-index: 10;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+
+    mat-card {
+        height: 90px;
+        width: 90px;
+    }
+
+    mat-card button {
+        position: absolute;
+        top: 60%;
+        color: red;
+        text-decoration: none;
+    
+    }
 }

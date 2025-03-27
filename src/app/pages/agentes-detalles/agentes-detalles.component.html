@@ -15,13 +15,13 @@
           <h2 class="characterName">{{ character.name }}</h2>
           <div class="detailsGrid">
             <div>
-              <p class="mb-2"><strong>Status:</strong> {{ character.status }}</p>
-              <p class="mb-2"><strong>Species:</strong> {{ character.species }}</p>
-              <p class="mb-2"><strong>Gender:</strong> {{ character.gender }}</p>
+              <p class="mb-2"><strong>Estado:</strong> {{ character.status | translateCharacter:'status' }}</p>
+              <p class="mb-2"><strong>Especie:</strong> {{ character.species | translateCharacter:'species' }}</p>
+              <p class="mb-2"><strong>Género:</strong> {{ character.gender | translateCharacter:'gender' }}</p>
             </div>
             <div>
-              <p class="mb-2"><strong>Origin:</strong> {{ character.origin.name }}</p>
-              <p class="mb-2"><strong>Location:</strong> {{ character.location.name }}</p>
+              <p class="mb-2"><strong>Origen:</strong> {{ character.origin.name | translateCharacter: 'origin' }}</p>
+              <p class="mb-2"><strong>Localización:</strong> {{ character.location.name | translateCharacter: 'location' }}</p>
             </div>
           </div>
         </div>
