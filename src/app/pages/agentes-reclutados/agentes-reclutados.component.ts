@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RecruitedCharactersService } from '../../core/services/recruit.service';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-agentes-reclutados',
@@ -14,7 +15,8 @@ import { NavbarComponent } from '../../shared/navbar/navbar.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    NavbarComponent
+    NavbarComponent,
+    RouterLink
   ],
   templateUrl: './agentes-reclutados.component.html',
   styleUrl: './agentes-reclutados.component.css'

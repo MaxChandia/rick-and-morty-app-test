@@ -3,27 +3,25 @@
   <div class="recruitCenter">
     <img src="./assets/images/nuevaciudadela.jpg" alt="citadelTower"/>
     <div class="recruitSpace">
-      <p *ngIf="recruitedCharactersService.recruitedCharacters().length === 0" class="text-center">
+      <h2>Agentes Reclutados</h2>
+      <p *ngIf="recruitedCharactersService.recruitedCharacters().length
+=== 0" class="text-center">
         No hay personajes reclutados aún
       </p>
       <div class="characters-grid">
-        <mat-card *ngFor="let character of recruitedCharactersService.recruitedCharacters()" 
-                  class="hover:scale-105 transition-transform">
-          <mat-card-header>
-            <mat-card-title>{{ character.name }}</mat-card-title>
-          </mat-card-header>
-          <img mat-card-image class="image-card" [src]="character.image" [alt]="character.name">
-          
+        <mat-card *ngFor="let character of
+recruitedCharactersService.recruitedCharacters()">
+          <img mat-card-image class="image-card"
+              [src]="character.image" [alt]="character.name" [routerLink]="['/agentes-detalles', character.id]">
+
           <mat-card-actions>
-            <button mat-raised-button color="warn" 
-                    (click)="removeCharacter(character.id)">
-              Eliminar
-              <mat-icon>close</mat-icon>
+            <button class="">
+              <mat-icon (click)="removeCharacter(character.id)">close</mat-icon>
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
   </div>
-  
+
 </section>
