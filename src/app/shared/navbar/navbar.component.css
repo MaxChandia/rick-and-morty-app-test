@@ -27,6 +27,10 @@ mat-toolbar {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 2px;
   }
+
+  .navbarRight mat-icon {
+   color: rgb(138, 138, 138);
+  }
   
   .navbarTheme img {
     height: 70px;
@@ -51,24 +55,25 @@ mat-toolbar {
       padding: 10px;
       width: 100%;
     }
+    
+    .mobile-navbarRight {
+      display: flex;
+      font-size: 10px;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
 
-    .sidebar-container {
-        height: 100vh;
-        width: 100%;
-        overflow: visible;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-      }
-  
+    }
+
+    .mobile-navbarRight a{
+      text-decoration: none;
+      color: rgb(0, 121, 107);
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      letter-spacing: 2px;
+    }
+
     .navbarLogo img {
       height: 50px;
-    }
-  
-    mat-drawer {
-      width: 250px;
-      background-color: rgb(255, 242, 186);
     }
   
     mat-list-item {

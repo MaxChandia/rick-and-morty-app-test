@@ -27,14 +27,17 @@ import { NgIf } from '@angular/common';
 })
 export class NavbarComponent {
   recruitedCharactersService = inject(RecruitedCharactersService);
-  
-  isSidebarOpen = signal(false);
-
-  toggleSidebar() {
-    this.isSidebarOpen.set(!this.isSidebarOpen());
-  }
+  isSidebarVisible = false;
   isDarkTheme: boolean = false;
 
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+  }
+  
+  isSidebarOpen() {
+    return this.isSidebarVisible;
+  }
+  
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
     document.body.classList.toggle('dark-theme', this.isDarkTheme);}

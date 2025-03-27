@@ -1,30 +1,18 @@
 <mat-toolbar class="mobile-navbar">
-
-  
   <div class="navbarLogo" routerLink="/">
     <img src="./assets/images/Rick_and_Morty_logo.webp" alt="rick-and-morty-logo">
   </div>
-    <button mat-icon-button (click)="toggleSidebar()">
-    <mat-icon>menu</mat-icon>
-  </button>
+   <div class="mobile-navbarRight">
+      <div>
+        <a [routerLink]="['/agentes-reclutados']"> <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon></a>
+        
+      </div>
+      <div class="navbarTheme">
+        <img *ngIf="!isDarkTheme" src="./assets/images/solrickmorty.png" alt="sol" (click)="toggleTheme()" style="cursor: pointer;" />
+        <img *ngIf="isDarkTheme" src="./assets/images/luna-rick-and-morty.png" alt="luna" (click)="toggleTheme()" style="cursor: pointer;" />
+      </div>
+    </div>
 </mat-toolbar>
-
-<mat-drawer-container class="sidebar-container">
-  <mat-drawer mode="over" [opened]="isSidebarOpen()">
-    <mat-nav-list>
-      <mat-list-item [routerLink]="['/agentes-reclutados']" (click)="toggleSidebar()">
-        <mat-icon matListItemIcon>supervisor_account</mat-icon>
-        Agentes reclutados 
-        <mat-badge matBadge="{{recruitedCharactersService.getRecruitedCount()}}"></mat-badge>
-      </mat-list-item>
-      
-      <mat-list-item>
-        <mat-icon matListItemIcon>brightness_4</mat-icon>
-        Cambiar Tema
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-drawer>
-</mat-drawer-container>
 
 <mat-toolbar class="desktop-navbar">
   <div class="navbarLogo" routerLink="/">
@@ -33,8 +21,8 @@
   
   <div class="navbarRight">
     <div>
-      <a [routerLink]="['/agentes-reclutados']">Agentes reclutados</a>
-      <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon>
+      <a [routerLink]="['/agentes-reclutados']">Agentes reclutados <mat-icon [matBadge]="recruitedCharactersService.getRecruitedCount()">supervisor_account</mat-icon></a>
+      
     </div>
     <div class="navbarTheme">
       <img *ngIf="!isDarkTheme" src="./assets/images/solrickmorty.png" alt="sol" (click)="toggleTheme()" style="cursor: pointer;" />
